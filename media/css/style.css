@@ -1,0 +1,143 @@
+/* general */
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.navigation-padding
+{
+    padding-top: 74px;
+}
+
+.font-monospace
+{
+    font-family: monospace;
+}
+
+#wrapper
+{
+    min-height: 100%;
+    position: relative;
+}
+
+#content
+{
+    padding-bottom: 100px;
+}
+
+#footer
+{
+    border-top: 1px solid #c0c0c0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: #e0e0e0;
+    padding-top: 20px;
+}
+
+/* forms */
+
+.form-base 
+{
+    margin-bottom: 10px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-base input[type="text"],
+.form-base input[type="password"] 
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.form-base input[type="text"]:focus,
+.form-base input[type="password"]:focus 
+{
+    z-index: 2;
+}
+.form-base input[type="text"] 
+{
+    margin-bottom: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-base input[type="password"] 
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* login */
+
+.form-login 
+{
+    max-width: 330px;
+}
+.form-login-heading
+{
+    margin-bottom: 10px;
+}
+
+/* subscribe */
+
+.form-subscribe 
+{
+    max-width: 370px;
+}
+.form-subscribe-heading
+{
+    margin-bottom: 10px;
+}
+
+/* unsubscribe */
+
+.form-unsubscribe 
+{
+    max-width: 370px;
+}
+.form-unsubscribe-heading
+{
+    margin-bottom: 10px;
+}
+
+/* account */
+
+.form-account 
+{
+    max-width: 370px;
+}
+.form-account-heading
+{
+    margin-bottom: 10px;
+}
+
+/* import */
+
+.form-import 
+{
+    max-width: 370px;
+}
+.form-import-heading
+{
+    margin-bottom: 10px;
+}
+
+/* settings */
+
+.form-settings 
+{
+    max-width: 370px;
+}
+.form-settings-heading
+{
+    margin-bottom: 10px;
+}
