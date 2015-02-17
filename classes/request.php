@@ -25,7 +25,7 @@ class Request
     public function __construct($method, $uri, $get, $post, $files)
     {
         // Set uri
-		$offset = strlen(Config::get('site', 'base_uri'));
+		$offset = strlen(Config::get('site', 'base_uri'))+1;
         $this->uri = substr($uri, $offset);
 
         // Set the method

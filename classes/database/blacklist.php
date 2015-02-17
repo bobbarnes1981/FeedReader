@@ -22,11 +22,11 @@ class Blacklist extends \Database
     public static function Blacklisted($source, $username)
     {
         // Construct query
-        $query = 'SELECT COUNT(blacklist.id) FROM blacklist WHERE source = "'.\Db::Instance()->Escape($source).'" AND username = "'.\Db::Instance()->Escape($username).'" AND DATE_SUB(NOW(),INTERVAL '.\Config::Get('blacklist', 'hours').' HOUR) <= attempted;';
+        $query = 'SELECT COUNT(blacklist.id) AS total FROM blacklist WHERE source = "'.\Db::Instance()->Escape($source).'" AND username = "'.\Db::Instance()->Escape($username).'" AND DATE_SUB(NOW(),INTERVAL '.\Config::Get('blacklist', 'hours').' HOUR) <= attempted;';
         // Execute query
         $res = \Db::Instance()->Query($query);
         // Check result
-        if ($res && $res->num_rows)
+        if ($res && $res->num_rows > 0)
         {
             $row = $res->fetch_assoc();
             return $row['total'] >= \Config::Get('blacklist', 'count');

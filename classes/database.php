@@ -126,14 +126,16 @@ abstract class Database
     }
 
     // Insert object
+	// TODO: escape input
     protected function Insert()
     {
         // Build column list
-        $columns = explode(array_keys(', ', $this->data));
+        $columns = implode(',', array_keys($this->data));
         // Build value list
-        $values = explode(array_values(', ', $this->data));
+        $values = implode('\',\'', array_values($this->data));
         // Construct query
-        $query = 'INSERT INTO '.$this->table_name.' ('.$columns.') VALUES ('.$values.');';
+        $query = 'INSERT INTO '.$this->table_name.' ('.$columns.') VALUES (\''.$values.'\');';
+var_dump($query);
         // Execute query
         return Db::Instance()->Query($query);
     }

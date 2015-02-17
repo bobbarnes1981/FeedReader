@@ -20,6 +20,12 @@ class App
     // Constructor
     private function __construct()
     {
+		// Set timezone
+		date_default_timezone_set('Europe/London');
+
+		// set exception handler
+		set_exception_handler(array('App', 'HandleError'));
+
         // Attach auto loader
         spl_autoload_register('App::AutoLoad');
     }
@@ -29,6 +35,16 @@ class App
     {
         Database\Channel::RefreshAll();
     }
+
+	public function Cli($args)
+	{
+		$this->Refresh();	
+		#$user = \Database\User::Factory(array(
+		#	'username' => '',
+		#	'password' => Auth::HashPassword(''),
+		#	'email' => ''));
+		#$user->save();
+	}
 
     // Run application
     public function Run()
@@ -95,18 +111,18 @@ class App
     }
 
     // Handle error
-    private function HandleError($exception)
+    public function HandleError($exception)
     {
         // If error subclass
         if (is_subclass_of($exception, 'Error'))
         {
             // Auto generate error request
-            $this->ProcessRequest($exception->GenerateRequest());
+            App::Instance()->ProcessRequest($exception->GenerateRequest());
         }
         else
         {
             // Handle generic exception
-            $this->ProcessRequest(new Request('GET', '/error/exception', array('exception' => $exception), array(), array()));
+            App::Instance()->ProcessRequest(new Request('GET', '/error/exception', array('exception' => $exception), array(), array()));
         }
     }
 

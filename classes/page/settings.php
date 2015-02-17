@@ -6,7 +6,7 @@ namespace Page;
 class Settings extends \Page
 {
     // Required user roles
-    protected $secure =array('view' => 'user');
+    protected $secure = array('view' => 'user');
 
     // View view
     public function View_View($request)

@@ -1,4 +1,4 @@
-<form class="form-base form-login" action="/account/login" method="post">
+<form class="form-base form-login" action="<?php echo Url::get('account', 'login'); ?>" method="post">
     <h2 class="form-login-heading">Please sign in</h2>
     <label for="">Username</label>
     <input type="text" name="username" value="<?php echo $username; ?>" class="input-block-level" placeholder="Username" /><br/>

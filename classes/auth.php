@@ -8,7 +8,7 @@ class Auth
     {
 	$source = $_SERVER['REMOTE_ADDR'];
 
-        // Check if black listed
+	// Check if black listed
 	if (Database\Blacklist::Blacklisted($source, $username))
         {
             // Append a blacklist entry
@@ -31,7 +31,7 @@ class Auth
         else
         {
             // Append a blacklist entry
-            Database\Blacklist::Add($source, $username);
+            Database\Blacklist::Add($source, $username, $password);
             // Fail
             return false;
         }

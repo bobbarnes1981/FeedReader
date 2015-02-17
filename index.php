@@ -1,8 +1,5 @@
 <?php
 
-// Set timezone
-date_default_timezone_set('Europe/London');
-
 // Include app
 require_once('classes/app.php');
 
@@ -10,7 +7,7 @@ require_once('classes/app.php');
 if (php_sapi_name() == 'cli')
 {
     // Refresh all channels
-    App::Instance()->Refresh();
+    App::Instance()->Cli($argv);
 }
 else
 {

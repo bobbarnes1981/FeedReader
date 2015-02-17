@@ -43,25 +43,25 @@ abstract class Page
             array(
                 'title' => 'Home',
                 'id'    => '__home__view',
-                'link'  => 'home/view'
+                'link'  => Url::get('home', 'view')
             ),
             // Add subscribe button
             array(
                 'title' => 'Subscribe', 
                 'id'    => '__subscription__add',
-                'link'  => 'subscription/add'
+                'link'  => Url::get('subscription', 'add')
             ),
             // Add import button
             array(
                 'title' => 'Import', 
                 'id'    => '__subscription__import',
-                'link'  => 'subscription/import'
+                'link'  => Url::get('subscription', 'import')
             ),
             // Add starred button
             array(
                 'title' => 'Starred', 
                 'id'    => '__item__starred',
-                'link'  => 'item/starred'
+                'link'  => Url::get('item', 'starred')
             ),
         );
 
@@ -78,13 +78,13 @@ abstract class Page
                 $buttons_left[] = array(
                     'title' => 'User',
                     'id'    => '__user__view',
-                    'link'  => 'user/view',
+                    'link'  => Url::get('user', 'view'),
                 );
                 // Add log button
                 $buttons_left[] = array(
                     'title' => 'Log',
                     'id'    => '__log__view',
-                    'link'  => 'log/view',
+                    'link'  => Url::get('log', 'view'),
                 );
             }
             // Add user buttons
@@ -97,19 +97,19 @@ abstract class Page
                     array(
                         'title' => 'Account', 
                         'id'    => '__account__view',
-                        'link'  => 'account/view'
+                        'link'  => Url::get('account', 'view')
                     ),
                     // Add settings button
                     array(
                         'title' => 'Settings', 
                         'id'    => '__settings__view',
-                        'link'  => 'settings/view'
+                        'link'  => Url::get('settings', 'view')
                     ),
                     // Add logout button
                     array(
                         'title' => 'Logout', 
                         'id'    => '__account__logout',
-                        'link'  => '/account/logout'
+                        'link'  => Url::get('account', 'logout')
                     ),
                 )
             );
