@@ -28,7 +28,7 @@ class Account extends \Page
                 $target = \Session::Get('target');
                 if ($target == null)
                 {
-                    $target = Url::get('home', '');
+                    $target = \Url::get('home', 'view');
                 }
                 // Success
                 header('Location: '.$target);
