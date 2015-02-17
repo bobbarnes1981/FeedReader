@@ -6,11 +6,11 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title><?php echo ucfirst($title); ?></title>
-        <link href="/media/css/bootstrap.css" rel="stylesheet">
-        <link href="/media/css/bootstrap-glyphicons.css" rel="stylesheet">
-        <link href="/media/css/style.css" rel="stylesheet">
-        <script src="/media/js/jquery-2.0.3.js"></script>
-        <script src="/media/js/bootstrap.js"></script>
+		<?php echo Html::style('media/css/bootstrap.css'); ?>
+        <?php echo Html::style('media/css/bootstrap-glyphicons.css'); ?>
+        <?php echo Html::style('media/css/style.css'); ?>
+        <?php echo Html::script('media/js/jquery-2.0.3.js'); ?>
+        <?php echo Html::script('media/js/bootstrap.js'); ?>
     </head>
     <body>
         <?php echo $navigation; ?>

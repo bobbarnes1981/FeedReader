@@ -25,7 +25,8 @@ class Request
     public function __construct($method, $uri, $get, $post, $files)
     {
         // Set uri
-        $this->uri = $uri;
+		$offset = strlen(Config::get('site', 'base_uri'));
+        $this->uri = substr($uri, $offset);
 
         // Set the method
         $this->method = $method;
@@ -34,15 +35,17 @@ class Request
         $route = null;
 
         // Strip the query string
-        if (strpos($uri, '?') !== false)
+        if (strpos($this->uri, '?') !== false)
         {
-            $route = explode('?', $uri);
+            $route = explode('?', $this->uri);
             $route = $route[0];
         }
         else
         {
-            $route = $uri;
+            $route = $this->uri;
         }
+
+	error_log($this->uri);
 
         // Copy the get array
         foreach ($get as $key => $val)

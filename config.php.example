@@ -1,6 +1,9 @@
 <?php
 
 $configs = array(
+	'site' => array(
+		'base_uri' => '/',
+	),
     'auth' => array(
         'salt'      => '',
     ),

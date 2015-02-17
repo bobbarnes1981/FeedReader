@@ -23,7 +23,7 @@ abstract class Page
                 // Store target page
                 Session::Set('target', $request->uri);
                 // Redirect to account login
-                header('Location: /account/login');
+                header('Location: '.Url::get('account', 'login'));
             }
         }
     }
@@ -43,25 +43,25 @@ abstract class Page
             array(
                 'title' => 'Home',
                 'id'    => '__home__view',
-                'link'  => '/home/view'
+                'link'  => 'home/view'
             ),
             // Add subscribe button
             array(
                 'title' => 'Subscribe', 
                 'id'    => '__subscription__add',
-                'link'  => '/subscription/add'
+                'link'  => 'subscription/add'
             ),
             // Add import button
             array(
                 'title' => 'Import', 
                 'id'    => '__subscription__import',
-                'link'  => '/subscription/import'
+                'link'  => 'subscription/import'
             ),
             // Add starred button
             array(
                 'title' => 'Starred', 
                 'id'    => '__item__starred',
-                'link'  => '/item/starred'
+                'link'  => 'item/starred'
             ),
         );
 
@@ -78,13 +78,13 @@ abstract class Page
                 $buttons_left[] = array(
                     'title' => 'User',
                     'id'    => '__user__view',
-                    'link'  => '/user/view',
+                    'link'  => 'user/view',
                 );
                 // Add log button
                 $buttons_left[] = array(
                     'title' => 'Log',
                     'id'    => '__log__view',
-                    'link'  => '/log/view',
+                    'link'  => 'log/view',
                 );
             }
             // Add user buttons
@@ -97,13 +97,13 @@ abstract class Page
                     array(
                         'title' => 'Account', 
                         'id'    => '__account__view',
-                        'link'  => '/account/view'
+                        'link'  => 'account/view'
                     ),
                     // Add settings button
                     array(
                         'title' => 'Settings', 
                         'id'    => '__settings__view',
-                        'link'  => '/settings/view'
+                        'link'  => 'settings/view'
                     ),
                     // Add logout button
                     array(
