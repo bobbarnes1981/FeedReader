@@ -24,7 +24,7 @@ class App
 		date_default_timezone_set('Europe/London');
 
 		// set exception handler
-		set_exception_handler(array('App', 'HandleError'));
+		set_exception_handler('App::HandleError');
 
         // Attach auto loader
         spl_autoload_register('App::AutoLoad');
@@ -111,7 +111,7 @@ class App
     }
 
     // Handle error
-    public function HandleError($exception)
+    public static function HandleError($exception)
     {
         // If error subclass
         if (is_subclass_of($exception, 'Error'))
@@ -127,7 +127,7 @@ class App
     }
 
     // Autoload class
-    public function AutoLoad($class_name)
+    public static function AutoLoad($class_name)
     {
         // To lower
         $class_name = strtolower($class_name);

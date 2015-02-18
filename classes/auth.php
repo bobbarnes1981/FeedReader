@@ -6,10 +6,10 @@ class Auth
     // Login using username and password
     public static function Login($username, $password)
     {
-	$source = $_SERVER['REMOTE_ADDR'];
+		$source = $_SERVER['REMOTE_ADDR'];
 
-	// Check if black listed
-	if (Database\Blacklist::Blacklisted($source, $username))
+		// Check if black listed
+		if (Database\Blacklist::Blacklisted($source, $username))
         {
             // Append a blacklist entry
             Database\Blacklist::Add($source, $username, $password);

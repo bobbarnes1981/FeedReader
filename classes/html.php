@@ -13,9 +13,19 @@ class Html
         return '<script src="'.Config::get('site', 'base_uri').'/'.$path.'"></script>';
 	}
 
-	public static function link($title, $path)
+	public static function link($title, $path, $attributes = array())
 	{
-		return '<a href="'.Config::get('site', 'base_uri').'/'.$path.'">'.$title.'</a>';
+		return '<a href="'.$path.'"'.Html::expandAttributes($attributes).'>'.$title.'</a>';
+	}
+
+	public static function expandAttributes($source)
+	{
+		$attributes = '';
+		foreach ($source AS $key => $value)
+		{
+			$attributes .= ' '.$key.'="'.$value.'"';
+		}
+		return $attributes;
 	}
 }
 

@@ -83,7 +83,7 @@ class Item extends \Page
 
         header('Location: '.$return);
 
-        return array();
+        exit();
     }
 
     // View starred

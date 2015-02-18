@@ -23,7 +23,7 @@ abstract class Page
                 // Store target page
                 Session::Set('target', $request->uri);
                 // Redirect to account login
-                header('Location: '.Url::get('account', 'login'));
+                Url::go('account', 'login');
             }
         }
     }

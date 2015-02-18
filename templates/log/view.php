@@ -1,9 +1,9 @@
 <h2>Log</h2>
 <div class="well">
     <?php if ($filter == 'error') { ?>
-    <a href="/log/view?page=<?php echo $page; ?>&filter=" class="btn btn-info">All</a>
+	<?php echo \Html::link('All', \Url::get('log', 'view', array('page' => $page, 'filter' => '')), array('class' => 'btn btn-info')); ?>
     <?php } else { ?>
-    <a href="/log/view?page=<?php echo $page; ?>&filter=error" class="btn btn-danger">Errors</a>
+	<?php echo \Html::link('Errors', \Url::get('log', 'view', array('page' => $page, 'filter' => 'error')), array('class' => 'btn btn-danger')); ?>
     <?php } ?>
     <?php echo $pagination; ?>
 </div>

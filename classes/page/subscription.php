@@ -6,7 +6,7 @@ namespace Page;
 class Subscription extends \Page
 {
     // Required user roles
-    protected $secure =array('add' => 'user', 'del' => 'user', 'import' => 'user');
+    protected $secure = array('add' => 'user', 'del' => 'user', 'import' => 'user');
 
     // View add
     public function View_Add($request)
@@ -23,7 +23,7 @@ class Subscription extends \Page
             if ($user->Subscribe($url))
             {
                 // Success
-                header('Location: /home/view');
+                Url::go('home', 'view');
             }
             else
             {
@@ -62,7 +62,7 @@ class Subscription extends \Page
             }
 
             // Return home
-            header('Location: /home/view');
+            Url::go('home', 'view');
         }
 
         return array('channel' => $channel);
@@ -90,7 +90,7 @@ class Subscription extends \Page
                 }
 
                 // Return home
-                header('Location: /home/view');
+                Url::go('home', 'view');
             }
             else
             {

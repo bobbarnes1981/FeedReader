@@ -21,6 +21,12 @@ class Request
     // Method (POST,GET)
     public $method;
 
+	// post constant
+	public static $POST = 'POST';
+
+	// get constant
+	public static $GET = 'GET';
+
     // Construct
     public function __construct($method, $uri, $get, $post, $files)
     {

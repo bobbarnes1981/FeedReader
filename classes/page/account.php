@@ -6,16 +6,21 @@ namespace Page;
 class Account extends \Page
 {
     // Required user roles
-    protected $secure =array('logout' => 'user', 'view' => 'user');
+    protected $secure = array('logout' => 'user', 'view' => 'user');
 
     // View login
     public function View_Login($request)
     {
+		$form = new \Form(\Request::$POST, \Url::get('account', 'login'), $request, array('class' => 'form-base form-login'));
+		$form->add(\Form::$TAG_INPUT, \Form::$INPUT_TEXT, 'username', array('class' => 'input-block-level', 'placeholder' => 'username'));
+		$form->add(\Form::$TAG_INPUT, \Form::$INPUT_PASSWORD, 'password', array('class' => 'input-block-level', 'placeholder' => 'password'));
+		$form->add(\Form::$TAG_BUTTON, \Form::$BUTTON_SUBMIT, 'Login', array('class' => 'btn btn-large btn-primary btn-block'));
+
         $username = null;
         $password = null;
 
         // If posted
-        if ($request->method == 'POST')
+        if ($request->method == \Request::$POST)
         {
             // Get parameters
             $username = $request->post['username'];
@@ -24,7 +29,7 @@ class Account extends \Page
             // Attempt login
             if (\Auth::Login($username, $password))
             {
-		// Get target URI
+				// Get target URI
                 $target = \Session::Get('target');
                 if ($target == null)
                 {
@@ -32,10 +37,14 @@ class Account extends \Page
                 }
                 // Success
                 header('Location: '.$target);
+
+				exit();
             }
+
+	        $this->alerts['danger'][] = 'Invalid username or password.';
         }
 
-        return array('username' => $username, 'password' => $password);
+        return array('username' => $username, 'password' => $password, 'form' => $form);
     }
 
     // View logout
@@ -45,7 +54,7 @@ class Account extends \Page
         \Auth::Logout();
 
         // Redirect to account login
-        header('Location: /account/login');
+        \Url::go('account', 'login');
     }
 
     // View view
